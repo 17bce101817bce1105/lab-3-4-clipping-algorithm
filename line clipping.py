@@ -1,7 +1,10 @@
 import PIL.ImageDraw as ID, PIL.Image as Image, PIL.ImageShow as IS
 im = Image.new("RGB", (640,480))
+im1 = Image.new("RGB", (640,480))
 draw = ID.Draw(im)
+draw2 = ID.Draw(im1)
 draw.polygon((200, 200, 400 , 200,400,300,200,300), outline = 255)
+draw2.polygon((200, 200, 400 , 200,400,300,200,300), outline = 255)
 p1=(400.0,300.0)#point p1 and p4 are perfect for drawing a rectangle but for simplicity sake p2 and p3 are considered
 p4=(200.0,200.0)
 def computeCode(x, y):
@@ -57,7 +60,8 @@ def cohenSutherlandClip(x1, y1, x2, y2):
             
     if accept: 
         print ("Accepted Straigth Line from %.2f,%.2f to %.2f,%.2f" % (x1,y1,x2,y2))
-        draw.line((x1,y1,x2,y2),fill=(0,0,255))
+        draw2.line((x1,y1,x2,y2),fill=(0,0,255))
+        
     else: 
         print("This line can not be drawn as outside the area")
 def draw1(x1, y1, x2, y2):
@@ -70,3 +74,4 @@ draw1(450,250,300,150)
 draw1(300,150,150,250)
 draw1(150,325,450,175)
 im.show();
+im1.show()
